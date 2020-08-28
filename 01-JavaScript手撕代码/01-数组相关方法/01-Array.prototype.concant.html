@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手撕-Array.prototype.concant</title>
+</head>
+
+<body>
+  <script>
+    /*
+      Array.prototype.eveny
+      用于判断某个数组是否能通过一个回调函数测试，全部通过返回true，否则返回false （空数组返回true）
+    */
+    Array.prototype.myEvery = function (callback) {
+      // 如果是空数组，返回true
+      if(this.length===0){
+        return true
+      }
+      // flag用于作为循环中是否有false情况的标识符
+      var flag = true
+      // 遍历数组
+      for (let item = 0; item < this.length; item++) {
+        // 把数组中每一项传入测试函数
+        if (!callback(this[item])) {
+          // 如果某一项没有通过测试，修改标识符，并跳出循环
+          flag = false
+          break;
+        }
+      }
+      // 根据标识符返回布尔值
+      if (flag) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    let arr1 = [2, 4, 6, 8, 10]
+    let arr2 = [2, 4, 3, 6, 8, 10]
+    let arr3 = []
+    let result1 = arr1.myEvery(item => item % 2 === 0)
+    let result2 = arr2.myEvery(item => item % 2 === 0)
+    let result3 = arr3.myEvery(item => item % 2 !== 0)
+    console.log(result1,result2,result3)
+    //          ture    false   true
+  </script>
+</body>
+
+</html>
