@@ -15,7 +15,7 @@
     */
     Array.prototype.myEvery = function (callback) {
       // 如果是空数组，返回true
-      if(this.length===0){
+      if (this.length === 0) {
         return true
       }
       // flag用于作为循环中是否有false情况的标识符
@@ -43,7 +43,7 @@
     let result1 = arr1.myEvery(item => item % 2 === 0)
     let result2 = arr2.myEvery(item => item % 2 === 0)
     let result3 = arr3.myEvery(item => item % 2 !== 0)
-    console.log(result1,result2,result3)
+    console.log(result1, result2, result3)
     //          ture    false   true
   </script>
 </body>
