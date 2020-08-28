@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>节流</title>
+</head>
+<body>
+  <button>点我输出</button>
+  <script>
+    /*
+      节流：保证某一事件在一定时间段内只能被触发一次
+
+    */
+    function throttle(callback,delay){
+      // 开始点击时间戳
+      let start = 0
+      return function(...args){
+        // 下次点击时间戳
+        let end = Date.now()
+        // 如果两次点击时间戳大于规定时间，才能触发回调
+        if(end - start > delay){
+          // 将开始时间戳设为第二次点击产生的时间戳
+          start = end
+          // 调用回调
+          callback.apply(this,args)
+        }
+      }
+    }
+    function callback(){
+      console.log('我被点击了......')
+    }
+    document.querySelector('button').onclick = throttle(callback,1000)
+  </script>
+</body>
+</html>
