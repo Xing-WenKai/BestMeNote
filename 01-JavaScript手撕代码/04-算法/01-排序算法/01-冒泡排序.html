@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>冒泡排序-Bubble Sort</title>
+</head>
+
+<body>
+  <script>
+    /*
+      冒泡排序算法的原理如下：
+        比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+        对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。 [1]
+        针对所有的元素重复以上的步骤，除了最后一个。
+        持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+        -- 百度百科
+    */
+
+    function Bubble(arr) {
+      // 作为交换数据的临时变量
+      let temp = 0
+      // 慢指针 - 作为第i轮的标识
+      for (let i = 0; i < arr.length; i++) {
+        // 快指针 - 作为数组的下标对数组进行遍历判断
+        for (let j = 0; j < arr.length - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            temp = arr[j]
+            arr[j] = arr[j + 1]
+            arr[j + 1] = temp
+          }
+        }
+      }
+    }
+    let arr = [2,24,12,36,88,30,4,25,1]
+    Bubble(arr)
+    console.log(arr)
+  </script>
+</body>
+
+</html>
