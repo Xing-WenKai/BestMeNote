@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>手撕-Array.prototype.indexOf</title>
+</head>
+
+<body>
+  <script>
+    /*
+      Array.prototype.indexOf
+      方法返回调用 String 对象中第一次出现的指定值的索引
+    */
+    Array.prototype.myIndexOf = function (string, idx) {
+      let index = 0
+      // 遍历目标数组
+      for (let i = idx || 0; i < this.length; i++) {
+        if (this[i] === string) {
+          index = i
+          break
+        }else{
+          index = -1
+        }
+      }
+      return index
+    }
+    let arr = [1, 2, 3, 4, 5, 6]
+    let result1 = arr.myIndexOf(4)
+    let result2 = arr.myIndexOf(2,5)
+    let result3 = arr.myIndexOf(9)
+    console.log(result1) // 3
+    console.log(result2) // -1
+    console.log(result3) // -1
+  </script>
+</body>
+
+</html>
