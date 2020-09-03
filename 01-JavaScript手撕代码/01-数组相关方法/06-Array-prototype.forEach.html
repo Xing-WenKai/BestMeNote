@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>手撕-Array.prototype.forEach</title>
+</head>
+
+<body>
+  <script>
+    /*
+      Array.prototype.forEach
+      对数组中的每一项进行遍历，并执行传入的回调函数，回调函数有两个参数，第一个参数为数组的每一项，第二个参数为该项的索引
+    */
+    Array.prototype.myforEach = function (callback) {
+      // 遍历目标数组
+      for (let i = 0; i < this.length; i++) {
+        callback(this[i], i)
+      }
+    }
+    let arr = [1, 2, 3, 4, 5, 6]
+    let result = []
+    arr.myforEach((item) => {
+      result.push(item * 2)
+    })
+    console.log(result)
+    // [2,4,6,8,10,12]
+  </script>
+</body>
+
+</html>
