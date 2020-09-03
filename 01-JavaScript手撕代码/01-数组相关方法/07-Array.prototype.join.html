@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>手撕-Array.prototype.join</title>
+</head>
+
+<body>
+  <script>
+    /*
+      Array.prototype.join
+      方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串
+    */
+    Array.prototype.myJoin = function (string) {
+      let str = ''
+      // 遍历目标数组
+      for (let i = 0; i < this.length; i++) {
+        i === this.length - 1 ? str += this[i] : str += this[i] + (string === undefined ? ',' : string)
+      }
+      // 第一个三目表示：如果当前索引为最后一项，则直接将该项拼接到字符串，否则则要拼接传入的字符串
+      // 第二个三目表示：如果没有传入字符串，则拼接逗号(也就是数组直接去掉[])，否则拼接传入的字符串
+      return str
+    }
+      let arr = [1, 2, 3, 4, 5, 6]
+      let result1 = arr.myJoin()
+      let result2 = arr.myJoin('')
+      let result3 = arr.myJoin('+')
+      console.log(result1) // 1,2,3,4,5,6
+      console.log(result2) // 123456
+      console.log(result3) // 1+2+3+4+5+6
+  </script>
+</body>
+
+</html>
