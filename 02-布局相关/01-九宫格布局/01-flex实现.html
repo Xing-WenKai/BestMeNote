@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>九宫格布局-flex</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      width: 600px;
+      height: 600px;
+      display: flex;
+      flex-flow: wrap;
+    }
+    .box{
+      width: 200px;
+      height: 200px;
+      color: #fff;
+      font-size: 50px;
+      text-align: center;
+      line-height: 200px;
+    }
+    .box:nth-child(2n){
+      background-color: rgb(26, 125, 255);
+    }
+    .box:nth-child(2n+1){
+      background-color: rgb(255, 137, 26);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+  </div>
+</body>
+</html>
