@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>数组去重-双指针</title>
+</head>
+
+<body>
+  <script>
+    /*
+      原理：通过使用快慢指针，用外侧慢指针选择需要本轮对比的项，用内侧快指针选择对比的目标项
+      如果相等，使用splice方法对该索引出的项进行删除
+    */
+    function fn(array) {
+      for (let i = 0; i < array.length; i++) {
+        for (let j = 1; j < array.length - 1; j++) {
+          if (array[i] === arr[j]) {
+            array.splice(j, 1)
+          }
+        }
+      }
+      return array
+    }
+    let arr = [2, 4, 3, 8, 4, 3, 2, 8, 1]
+    console.log(fn(arr))// [2,3,4,1]
+  </script>
+</body>
+
+</html>
