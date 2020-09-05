@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>手撕-Array.prototype.findIndex</title>
+</head>
+
+<body>
+  <script>
+    /*
+      Array.prototype.indexOf
+      方法返回传入一个测试条件（函数）符合条件的数组第一个元素位置
+    */
+    Array.prototype.myFindIndex = function (callback) {
+      // 如果数组为空，findIndex就不会执行
+      if(!this.length) return -1
+
+      for (let i = 0; i < this.length; i++) {
+        if(callback(this[i])){
+          return i
+        }
+      }
+      return -1
+    }
+
+    let arr = [
+      {id:'23124',data:'芜湖'},
+      {id:'78654',data:'起飞'},
+      {id:'35736',data:'金牌讲师'},
+      {id:'78973',data:'肉蛋葱鸡'},
+    ]
+    let result = arr.myFindIndex(item => item.id === '35736')
+    console.log(result) // 2
+
+    result = arr.myFindIndex(item => item.id === '99999')
+    console.log(result) // -1
+
+    arr = []
+    result = arr.myFindIndex(item => item.id === '99999')
+    console.log(result) // -1
+  </script>
+</body>
+
+</html>
