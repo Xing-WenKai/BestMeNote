@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>数组去重-Set</title>
+</head>
+
+<body>
+  <script>
+    /*
+      原理：Set是ES6中新的数据类型集合，类似于数组，但是集合中没有重复的元素
+    */
+    function removeRepeat(array) {
+      return Array.from(new Set(array))
+    }
+    let arr = [2, 4, 3, 8, 4, 3, 2, 8, 1]
+    console.log(removeRepeat(arr))// [2,3,4,8,1]
+  </script>
+</body>
+
+</html>
