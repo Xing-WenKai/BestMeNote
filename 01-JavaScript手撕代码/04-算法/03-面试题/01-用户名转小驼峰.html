@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>算法-用户名转小驼峰</title>
+</head>
+<body>
+  <script>
+    /*
+      字节面试题
+      给定用户的名字，例如first_name，要求输出小驼峰写法：firstName
+    */
+    function formatUserName(userName){
+      let index = userName.indexOf('_')
+      return userName.substring(0,index) + userName[index + 1].toUpperCase() + userName.substring(index + 2)
+    }
+    console.log(formatUserName('Tony_stark')) // TonyStark
+  </script>
+</body>
+</html>
