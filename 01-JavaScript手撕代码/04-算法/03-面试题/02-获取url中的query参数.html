@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>算法-获取url中的query参数</title>
+</head>
+<body>
+  <script>
+    /*
+      字节面试题
+      给定一串url，要求输出url携带的query参数
+    */
+    function urlToQuery(url){
+      let query = url.split('?')[1]
+      let keyValue = query.split('&')
+      let obj = {}
+      keyValue.forEach(item =>{
+        let keyWord = item.split('=')[0]
+        let value = item.split('=')[1]
+        obj[keyWord] = value
+      })
+      return obj
+    }
+    console.log(urlToQuery('baidu.com?name=哈哈&age=23&gender=1')) // TonyStark
+  </script>
+</body>
+</html>
